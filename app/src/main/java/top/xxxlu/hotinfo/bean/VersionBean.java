@@ -5,49 +5,94 @@ package top.xxxlu.hotinfo.bean;
  */
 
 public class VersionBean {
-    private boolean compel;//": false,   --是否强制更新
-    private String plat;//": "android",
-    private String remark;//": "1.最新版安卓端",   --更新说明
-    private String url;//": "/download/xinyiliwu.apk",  --下载地址，或appstore地址
-    private String version;//": "1.1"   --最新版本号
 
-    public boolean isCompel() {
-        return compel;
+    /**
+     * msg : ok
+     * data : {"versionCode":"1000","versionName":"1.0.0","title":"升级了","msg":"增加了好多新功能哦！","compel":true,"appUrl":"http://php.xxxlu.top/hotinfo/public/static/app/hotinfo-1.0.0-release.apk"}
+     */
+
+    private String msg;
+    private DataBean data;
+
+    public String getMsg() {
+        return msg;
     }
 
-    public void setCompel(boolean compel) {
-        this.compel = compel;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public String getPlat() {
-        return plat;
+    public DataBean getData() {
+        return data;
     }
 
-    public void setPlat(String plat) {
-        this.plat = plat;
+    public void setData(DataBean data) {
+        this.data = data;
     }
 
-    public String getRemark() {
-        return remark;
-    }
+    public static class DataBean {
+        /**
+         * versionCode : 1000
+         * versionName : 1.0.0
+         * title : 升级了
+         * msg : 增加了好多新功能哦！
+         * compel : true
+         * appUrl : http://php.xxxlu.top/hotinfo/public/static/app/hotinfo-1.0.0-release.apk
+         */
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+        private int versionCode;
+        private String versionName;
+        private String title;
+        private String msg;
+        private boolean compel;
+        private String appUrl;
 
-    public String getUrl() {
-        return url;
-    }
+        public int getVersionCode() {
+            return versionCode;
+        }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+        public void setVersionCode(int versionCode) {
+            this.versionCode = versionCode;
+        }
 
-    public String getVersion() {
-        return version;
-    }
+        public String getVersionName() {
+            return versionName;
+        }
 
-    public void setVersion(String version) {
-        this.version = version;
+        public void setVersionName(String versionName) {
+            this.versionName = versionName;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
+        }
+
+        public boolean isCompel() {
+            return compel;
+        }
+
+        public void setCompel(boolean compel) {
+            this.compel = compel;
+        }
+
+        public String getAppUrl() {
+            return appUrl;
+        }
+
+        public void setAppUrl(String appUrl) {
+            this.appUrl = appUrl;
+        }
     }
 }

@@ -32,6 +32,8 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import top.xxxlu.hotinfo.bean.TouTiaoBean;
+import top.xxxlu.hotinfo.bean.VersionBean;
+import top.xxxlu.hotinfo.utils.AAMethod;
 import top.xxxlu.hotinfo.utils.Ahttp;
 import top.xxxlu.hotinfo.utils.ArequestCallBack;
 
@@ -58,6 +60,7 @@ public class MainActivity extends BaseFragmentActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         reqData();
+        upAPP();
     }
 
     @Override
@@ -192,25 +195,33 @@ public class MainActivity extends BaseFragmentActivity implements NavigationView
     }
 
     /**
-     *
+     * 版本升级检测
      */
     private void upAPP(){
         AllenVersionChecker
                 .getInstance()
                 .requestVersion()
-                .setRequestUrl("")
+                .setRequestUrl(Config.APP_VERSION)
                 .request(new RequestVersionListener() {
                     @Nullable
                     @Override
                     public UIData onRequestVersionSuccess(String result) {
-                        LogUtil.i("========"+result);
-                        return null;
+                        VersionBean bean = JSON.parseObject(result,VersionBean.class);
+                        if (bean.getData().getVersionCode()> AAMethod.getVersionCode(getApplicationContext())){
+                            UIData uiData = UIData.create()
+                                    .setDownloadUrl(bean.getData().getAppUrl())
+                                    .setTitle(bean.getData().getTitle())
+                                    .setContent(bean.getData().getMsg());
+                            return uiData;
+                        }else {
+                            return null;
+                        }
                     }
 
                     @Override
                     public void onRequestVersionFailure(String message) {
 
                     }
-                });
+                }).excuteMission(myActivity);
     }
 }
