@@ -1,2 +1,1 @@
 # HotInfo
-Frist

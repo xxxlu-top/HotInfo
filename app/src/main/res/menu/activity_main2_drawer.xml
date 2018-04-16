@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_weibo"
+            android:icon="@drawable/weibo"
+            android:title="微博热搜"/>
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/news"
+            android:title="官媒热闻"/>
+        <item
+            android:id="@+id/nav_weixin"
+            android:icon="@drawable/weixin"
+            android:title="微信热闻"/>
+        <item
+            android:id="@+id/nav_toutiao"
+            android:icon="@drawable/toutiao"
+            android:title="今日头条"/>
+        <item
+            android:id="@+id/nav_article"
+            android:icon="@drawable/read"
+            android:title="每日优读"/>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/setting"
+                android:title="设置"/>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/share"
+                android:title="分享应用"/>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/send"
+                android:title="意见反馈"/>
+        </menu>
+    </item>
+
+</menu>

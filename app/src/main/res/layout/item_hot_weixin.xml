@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/recycler_item_selector">
+
+    <TextView
+        android:id="@+id/hot_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="测试"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/hot_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hot_title"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="发布时间：2018年3月27日"/>
+
+    <TextView
+        android:id="@+id/hot_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/hot_title"
+        android:layout_marginRight="10dp"
+        android:text="热度"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/hot_date"
+        android:background="#e9e9e9"/>
+</RelativeLayout>

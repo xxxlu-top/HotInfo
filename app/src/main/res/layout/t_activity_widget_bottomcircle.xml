@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <top.xxxlu.hotinfo.widget.AppTitleBar xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:id="@+id/app_title_bar"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:clickable="true"
+                                            app:aa_bar_title="标题" />
+
+    <top.xxxlu.hotinfo.widget.Arc_Shape xmlns:app="http://schemas.android.com/apk/res-auto"
+                                          android:layout_width="match_parent"
+                                          android:layout_height="100dp"
+                                          android:layout_marginTop="50dp"
+                                          app:aa_bg_color="@color/orange500"
+                                          app:aa_cut_width="3dp" />
+</LinearLayout>
