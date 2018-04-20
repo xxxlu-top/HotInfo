@@ -226,6 +226,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <!-- 工具类结束============================================================================================================== -->
+        <activity
+            android:name=".activity.content.ContentActivity"
+            android:label="@string/title_activity_content"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

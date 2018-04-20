@@ -17,8 +17,8 @@ public class Config {
 
     //微信
     public static final String WEIXIN_URL = "http://php.xxxlu.top/hotinfo/public/index/index/weixin";
-    //官方
-    public static final String NEWS_URL = "http://php.xxxlu.top/hotinfo/public/index/index/guangming";
+    //光明日报
+    public static final String GM_NEWS_URL = "http://php.xxxlu.top/hotinfo/public/index/index/guangming";
     //更新信息
     public static final String APP_VERSION = "http://php.xxxlu.top/hotinfo/public/index/index/version";
 }

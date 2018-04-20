@@ -10,35 +10,27 @@ import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
 import org.xutils.common.util.LogUtil;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+
 import top.xxxlu.hotinfo.R;
 
-public class WebActivity extends AppCompatActivity {
+@ContentView(R.layout.activity_web)
+public class WebActivity extends BaseFragmentActivity {
 
-    private WebView mWebView;
+    @ViewInject(R.id.web_view)
+    WebView mWebView;
     private String mUrl;
+    private FloatingActionButton mFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
-        initView();
-
-        mUrl = getIntent().getStringExtra("url");
-        LogUtil.i("地址："+mUrl);
-        mWebView.loadUrl(mUrl);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mWebView.goBack();
-            }
-        });
-
     }
 
-    private void initView() {
-        mWebView = (WebView) findViewById(R.id.web_view);
+    @Override
+    public void initView() {
+//        mWebView = (WebView) findViewById(R.id.web_view);
         mWebView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView webView, String s) {
@@ -46,5 +38,39 @@ public class WebActivity extends AppCompatActivity {
             }
         });
         mWebView.getSettings().setJavaScriptEnabled(true);
+        mFab = (FloatingActionButton) findViewById(R.id.fab);
+
+        mUrl = getIntent().getStringExtra("url");
+        String content = getIntent().getStringExtra("content");
+        if (mUrl != null) {
+            LogUtil.i("地址："+mUrl);
+            mWebView.loadUrl(mUrl);
+        }else if (content!=null){
+            mWebView.loadData(content, "text/html; charset=UTF-8", null);
+        }
+    }
+
+    @Override
+    public void initListener() {
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mWebView.canGoBack()){
+                    mWebView.goBack();
+                }else {
+                    finish();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void reqData() {
+
     }
 }

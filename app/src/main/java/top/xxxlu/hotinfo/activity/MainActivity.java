@@ -21,6 +21,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import top.xxxlu.hotinfo.Config;
 import top.xxxlu.hotinfo.R;
+import top.xxxlu.hotinfo.adapter.GuangMingAdapter;
 import top.xxxlu.hotinfo.adapter.HotSearchAdapter;
 import top.xxxlu.hotinfo.adapter.TouTiaoAdapter;
 import top.xxxlu.hotinfo.adapter.WeiXinAdapter;
@@ -129,6 +130,11 @@ public class MainActivity extends BaseFragmentActivity implements NavigationView
                         mWeixin = JSON.parseObject(res,CurrentArticleBean.class);
                         mHotSearchList.setAdapter(new WeiXinAdapter(mWeixin));
                         break;
+                    case 3:
+                        //光明日报
+                        CurrentArticleBean gm = JSON.parseObject(res,CurrentArticleBean.class);
+                        mHotSearchList.setAdapter(new GuangMingAdapter(gm));
+                        break;
                     default:
                         break;
                 }
@@ -158,7 +164,9 @@ public class MainActivity extends BaseFragmentActivity implements NavigationView
                 break;
 
             case R.id.nav_news:
-                toastShow("功能开发中...");
+                //官方新闻
+                type = 3;
+                getWebData(Config.GM_NEWS_URL);
                 break;
 
             case R.id.nav_weixin:
